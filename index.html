@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Weather App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="app-container">
+        <!-- Sidebar / Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-bolt"></i> WeatherPro
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-view="dashboard"><i class="fa-solid fa-house"></i> Dashboard</li>
+                <li data-view="favorites"><i class="fa-solid fa-heart"></i> Favorites</li>
+                <li data-view="comparison"><i class="fa-solid fa-chart-simple"></i> Compare</li>
+                <li id="theme-toggle"><i class="fa-solid fa-moon"></i> Theme</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header & Search -->
+            <header>
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="city-search" placeholder="Search for a city...">
+                    <ul id="search-suggestions" class="suggestions-list hidden"></ul>
+                </div>
+                <div class="header-actions">
+                    <button id="locate-btn"><i class="fa-solid fa-location-crosshairs"></i> Current Location</button>
+                    <div class="unit-toggle">
+                        <span class="active" data-unit="metric">°C</span>
+                        <span data-unit="imperial">°F</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Alerts Section -->
+            <div id="alerts-container"></div>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view-section active">
+                <div class="weather-grid">
+                    <!-- Main Current Weather -->
+                    <div class="card current-weather">
+                        <div class="weather-info">
+                            <h2 id="city-name">--</h2>
+                            <p id="current-date">--</p>
+                            <div class="temp-container">
+                                <span id="current-temp">--°</span>
+                                <img id="weather-icon" src="" alt="" class="hidden">
+                            </div>
+                            <p id="weather-desc">--</p>
+                        </div>
+                    </div>
+
+                    <!-- Climate Highlights -->
+                    <div class="card highlights">
+                        <h3>Today's Highlights</h3>
+                        <div class="highlights-grid">
+                            <div class="highlight-item">
+                                <span>UV Index</span>
+                                <div class="gauge">
+                                    <div class="gauge-fill" id="uv-gauge" style="width: 0%"></div>
+                                </div>
+                                <span id="uv-value">--</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span>Wind Status</span>
+                                <span class="value" id="wind-speed">--</span>
+                                <span class="sub" id="wind-dir">--</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span>Sunrise & Sunset</span>
+                                <div class="sun-times">
+                                    <div><i class="fa-solid fa-sun"></i> <span id="sunrise-time">--</span></div>
+                                    <div><i class="fa-solid fa-moon"></i> <span id="sunset-time">--</span></div>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <span>Humidity</span>
+                                <span class="value" id="humidity">--%</span>
+                                <span class="sub" id="humidity-status">--</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span>Visibility</span>
+                                <span class="value" id="visibility">-- km</span>
+                                <span class="sub" id="visibility-status">--</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span>Air Quality</span>
+                                <span class="value" id="aqi-value">--</span>
+                                <span class="sub" id="aqi-status">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hourly Forecast -->
+                    <div class="card hourly-forecast">
+                        <h3>Hourly Forecast</h3>
+                        <div class="hourly-scroll" id="hourly-container">
+                            <!-- Hourly items generated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- 7 Day Forecast -->
+                    <div class="card daily-forecast">
+                        <h3>7-Day Forecast</h3>
+                        <div class="daily-list" id="daily-container">
+                            <!-- Daily items generated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites View -->
+            <div id="favorites-view" class="view-section hidden">
+                <h2>Saved Locations</h2>
+                <div class="favorites-grid" id="favorites-container">
+                    <!-- Favorite cards generated by JS -->
+                </div>
+            </div>
+
+            <!-- Comparison View -->
+            <div id="comparison-view" class="view-section hidden">
+                <h2>Weather Comparison</h2>
+                <div class="comparison-controls">
+                    <input type="text" id="compare-city-1" placeholder="City 1">
+                    <input type="text" id="compare-city-2" placeholder="City 2">
+                    <button id="compare-btn">Compare</button>
+                </div>
+                <div class="comparison-result hidden" id="comparison-result">
+                    <div class="compare-col" id="compare-col-1"></div>
+                    <div class="compare-col" id="compare-col-2"></div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
