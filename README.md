@@ -1,4 +1,4 @@
-# 🌦️ Atmosphere: Advanced Weather Dashboard
+# 🌦️ Atmosphere: Advanced Weather Dashboard 
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Version](https://img.shields.io/badge/Version-2.0-green.svg)
