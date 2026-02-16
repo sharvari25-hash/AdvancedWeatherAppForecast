@@ -7,7 +7,7 @@
 > A production-grade, aesthetically pleasing weather application built with Vanilla JavaScript, featuring glassmorphism UI, real-time data, and offline capabilities.
 
 ---
-
+ 
 ## 🌟 Features
 
 ### 🎨 Visuals & UI
